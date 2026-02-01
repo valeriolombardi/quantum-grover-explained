@@ -1,9 +1,9 @@
 # Quantum Grover Explained
 
 This repository contains a **reproducible, executable, and educational demonstration**
-of **Groverâ€™s algorithm**, implemented in Python using **Qiskit**.
+of **Grover’s algorithm**, implemented in Python using **Qiskit**.
 
-The goal is not to publish a research paper, but to show â€” **honestly and concretely** â€”
+The goal is not to publish a research paper, but to show — **honestly and concretely** —
 what changes when we move from a **classical search** to a **quantum search**.
 
 Everything you see here:
@@ -14,7 +14,7 @@ Everything you see here:
 
 ---
 
-## ðŸ” The Problem (Explained for Everyone)
+## 🔍 The Problem (Explained for Everyone)
 
 Imagine a lock made of **4 small switches**.
 
@@ -29,7 +29,7 @@ So we have **16 possible combinations**, for example:
 0001
 0010
 ...
-1011  â† this is the correct one
+1011  ← this is the correct one
 ```
 
 The task is very simple:
@@ -41,7 +41,7 @@ searching for the right value among many possibilities.
 
 ---
 
-## ðŸ’» Classical Approach: One Attempt at a Time
+## 💻 Classical Approach: One Attempt at a Time
 
 A classical computer works **sequentially**.
 
@@ -54,24 +54,24 @@ It checks:
 In the worst case, it must check **all 16 combinations**.
 
 If the number of possibilities grows, the time grows **linearly**:
-- 16 â†’ fast
-- 1,000,000 â†’ slow
-- 1,000,000,000 â†’ very slow
+- 16 → fast
+- 1,000,000 → slow
+- 1,000,000,000 → very slow
 
 This is called **O(N)** complexity.
 
 ---
 
-## âš›ï¸ Quantum Approach: Groverâ€™s Algorithm
+## ⚛️ Quantum Approach: Grover’s Algorithm
 
 A quantum computer works in a very different way.
 
 It does **not** try all combinations one by one.
-It also does **not** â€œguessâ€.
+It also does **not** “guess”.
 
 Instead, it uses three key ideas:
 
-### 1ï¸âƒ£ Superposition
+### 1️⃣ Superposition
 All possible combinations are represented **at the same time** as a single quantum state.
 
 In code, this happens here:
@@ -85,14 +85,14 @@ This is the moment where:
 
 ---
 
-### 2ï¸âƒ£ Oracle (Marking the Correct Answer)
+### 2️⃣ Oracle (Marking the Correct Answer)
 
 The **Oracle** is a quantum operation that:
 - does NOT reveal the correct answer
 - only **marks it** by flipping its phase
 
 Think of it as:
-> â€œI donâ€™t know where the solution is, but I know how to recognize it.â€
+> “I don’t know where the solution is, but I know how to recognize it.”
 
 In the code, this is done using a **multi-controlled gate (`mcx`)**.
 
@@ -101,7 +101,7 @@ Without it, the algorithm would just return a random result.
 
 ---
 
-### 3ï¸âƒ£ Diffuser (Amplitude Amplification)
+### 3️⃣ Diffuser (Amplitude Amplification)
 
 The **Diffuser** takes the small phase difference introduced by the Oracle and:
 - amplifies the probability of the correct answer
@@ -112,12 +112,12 @@ wrong paths cancel out, the right one survives.
 
 ---
 
-## ðŸ“ˆ Why This Is Faster
+## 📈 Why This Is Faster
 
 For **16 possibilities**:
 
 - Classical search: up to **16 checks**
-- Groverâ€™s algorithm: about **âˆš16 â‰ˆ 4 iterations**
+- Grover’s algorithm: about **√16 ≈ 4 iterations**
 
 This is not a constant-time miracle,
 but a **quadratic speedup**, which becomes dramatic at scale.
@@ -127,18 +127,18 @@ Example:
   - Classical: ~1,000,000 checks  
   - Quantum: ~1,000 iterations  
 
-This is what people mean by **â€œscale of changeâ€**.
+This is what people mean by **“scale of change”**.
 
 ---
 
-## â–¶ï¸ Running the Experiment
+## ▶️ Running the Experiment
 
-### 1ï¸âƒ£ Install dependencies
+### 1️⃣ Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2ï¸âƒ£ Run the demo
+### 2️⃣ Run the demo
 ```bash
 python grover_demo.py
 ```
@@ -153,7 +153,7 @@ Everything shown in the terminal is real execution, not animation.
 
 ---
 
-## ðŸŽ¥ Video Walkthrough
+## 🎥 Video Walkthrough
 
 A full explanation of:
 - the problem
@@ -161,20 +161,20 @@ A full explanation of:
 - the quantum code
 - the physics behind the algorithm
 
-ðŸ‘‰ Medium article:
+👉 Medium article:
 https://medium.com/@valeriolombardi.com/cercare-lago-nel-pagliaio-il-test-quantistico-spiegato-passo-passo-c7a1a875a45f
 
 ---
 
-## ðŸŽ¯ What This Project Is (and Is Not)
+## 🎯 What This Project Is (and Is Not)
 
-âœ… It **is**:
+✅ It **is**:
 - educational
 - reproducible
 - scientifically honest
 - based on real quantum logic
 
-âŒ It is **not**:
+❌ It is **not**:
 - a claim of quantum supremacy
 - a hardware benchmark
 - a replacement for academic literature
@@ -184,6 +184,6 @@ feedback and discussion are welcome.
 
 ---
 
-## ðŸ“„ License
+## 📄 License
 
-MIT License â€” free to use, modify, and share with attribution.
+MIT License — free to use, modify, and share with attribution.
